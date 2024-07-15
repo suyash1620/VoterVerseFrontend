@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+// import Uservotepage from './components/Uservotepage';
+import Candidateslist from './components/Candidateslist';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Appbar from './components/Appbar';
+import VotePage from './components/Uservotepage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+      <Router>
+        <Appbar/>
+        <Routes>
+
+          <Route path='/uservote' element={<VotePage/>}/>
+          <Route path='/admin' element={<Candidateslist/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/login"element={<Login/>}/>
+
+          <Route/>
+
+
+
+
+
+
+
+        </Routes>
+      </Router>
+      </>
     </div>
   );
 }
